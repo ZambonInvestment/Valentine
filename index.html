@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>San Valentino 💖</title>
+<title>Buon San Valentino babe💖</title>
 
 <style>
 body {
@@ -12,13 +12,12 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(#ffd6e7, #fff0f5);
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* CUORI */
 .heart {
   position: fixed;
-  color: red;
   animation: float 6s linear infinite;
 }
 
@@ -27,73 +26,68 @@ body {
   to { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* SEZIONI */
+/* SEZIONI FULLSCREEN */
 .section {
   display: none;
-  padding: 20px;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
 }
 
 .active {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-/* TESTO */
-h1 { font-size: 28px; }
-h2 { font-size: 22px; }
-
-/* BOTTONI MOBILE */
-button {
-  width: 80%;
-  max-width: 300px;
-  padding: 16px;
-  font-size: 20px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin: 12px;
+/* TESTI GRANDI */
+h1 {
+  font-size: 38px;
+  margin: 10px;
 }
 
-/* CAPTCHA GRID MOBILE */
+h2 {
+  font-size: 28px;
+  margin: 10px;
+}
+
+/* BOTTONI ENORMI */
+button {
+  width: 90%;
+  max-width: 400px;
+  padding: 22px;
+  font-size: 26px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* CAPTCHA QUASI FULLSCREEN */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
+  gap: 8px;
+  width: 95vw;
+  max-width: 500px;
 }
 
 img {
   width: 100%;
-  aspect-ratio: 1;
+  height: 22vh;
   object-fit: cover;
-  border-radius: 12px;
-  border: 4px solid transparent;
-  cursor: pointer;
+  border-radius: 14px;
+  border: 5px solid transparent;
 }
 
 .selected {
-  border: 4px solid red;
+  border: 5px solid red;
 }
 
-/* DESKTOP UPGRADE */
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  h1 { font-size: 36px; }
-}
-
-/* MESSAGGIO SEGRETO */
+/* MESSAGGIO FINALE */
 #secret {
-  font-size: 20px;
+  font-size: 24px;
   color: #c4005a;
-  margin-top: 20px;
   display: none;
   padding: 10px;
 }
@@ -122,7 +116,7 @@ img {
 
 <!-- CAPTCHA -->
 <div id="captcha" class="section">
-  <h2>Seleziona tutte le foto del tuo ragazzo 😉</h2>
+  <h2>Trova tutte le mie foto 😉</h2>
 
   <div class="grid">
     <img src="me1.jpg" onclick="toggle(this,true)">
@@ -138,35 +132,35 @@ img {
   <div id="secret">
     💖 Congratulazioni amore! 💖<br><br>
     🎁 <b>[SCRIVI QUI IL REGALO]</b> 🎁<br><br>
-    Buon San Valentino! Ti amo 💘
+    Ti amo 💘
   </div>
 </div>
 
 <script>
-/* CUORI ANIMATI */
+/* CUORI */
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 18 + 12) + "px";
+  heart.style.fontSize = (Math.random() * 24 + 16) + "px";
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 6000);
 }
 setInterval(createHeart, 400);
 
-/* NO CHE SCAPPA (TOUCH FRIENDLY) */
+/* NO CHE SCAPPA */
 function escapeNo() {
   const btn = document.getElementById("noBtn");
   btn.innerText = "YES 💘";
   btn.style.position = "absolute";
-  btn.style.left = Math.random() * 70 + "%";
+  btn.style.left = Math.random() * 60 + "%";
   btn.style.top = Math.random() * 70 + "%";
 
-  document.getElementById("yesBtn").style.fontSize = "24px";
+  document.getElementById("yesBtn").style.fontSize = "32px";
 }
 
-/* PASSA AL CAPTCHA */
+/* NAVIGAZIONE */
 function startCaptcha() {
   document.getElementById("game").classList.remove("active");
   document.getElementById("captcha").classList.add("active");
@@ -196,7 +190,7 @@ function checkCaptcha() {
   if (success && selected.size === correct.size) {
     document.getElementById("secret").style.display = "block";
   } else {
-    alert("Ops! Riprova amore 😘");
+    alert("Riprova amore 😘");
   }
 }
 </script>
