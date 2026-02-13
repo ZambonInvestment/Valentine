@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il tuo regalo 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(#ffb6d9, #fff0f5);
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CUORI */
+.heart {
+  position: fixed;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+h1 {
+  font-size: 40px;
+  color: #c4005a;
+}
+
+p {
+  font-size: 26px;
+  margin: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 Sorpresa! 💖</h1>
+
+<p>
+🎁 <b>[SCRIVI QUI IL REGALO]</b> 🎁
+</p>
+
+<p>Buon San Valentino amore 💘</p>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
