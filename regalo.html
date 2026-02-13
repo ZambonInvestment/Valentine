@@ -3,88 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Il tuo regalo 💖</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: linear-gradient(#ffb6d9, #fff0f5);
   text-align: center;
-  height: 100vh;
   overflow: hidden;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* CUORI */
+/* CONTENITORE PRINCIPALE */
+.container {
+  max-width: 95%;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* TITOLO */
+h1 {
+  font-size: 30px;
+  color: #c4005a;
+  margin-bottom: 15px;
+}
+
+/* SEZIONI REGALO */
+.gift {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* FIRMA */
+.signature {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #a0004d;
+}
+
+/* CUORI ANIMATI */
 .heart {
   position: fixed;
   animation: float 6s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes float {
   from { transform: translateY(100vh); opacity: 1; }
   to { transform: translateY(-10vh); opacity: 0; }
 }
-
-h1 {
-  font-size: 40px;
-  color: #c4005a;
-}
-
-p {
-  font-size: 12px;
-  margin: 20px;
-}
 </style>
 </head>
 
 <body>
 
-<h1>💖 Sorpresa! 💖</h1>
+<div class="container">
 
-<p>
-  <div style="max-width: 600px; padding: 20px;">
+  <h1>📜 CONTRATTO UFFICIALE DI SAN VALENTINO 📜</h1>
 
-  <h2>📜 CONTRATTO UFFICIALE DI SAN VALENTINO 📜</h2>
+  <div class="gift">
+    💆‍♀️ <strong>REGALO 1 — Voucher Massaggi</strong><br><br>
+    La beneficiaria ha diritto a <strong>n. 3 massaggi professionali</strong>
+    erogati dal sottoscritto, eseguiti con la massima cura,
+    dedizione e spirito romantico.
+    Eventuali risatine durante il trattamento sono ufficialmente consentite.
+  </div>
 
-  <p>
-    Con la presente si certifica che la beneficiaria ha diritto a:
-  </p>
+  <div class="gift">
+    🏛️ <strong>REGALO 2 — Tour Operatore per Firenze</strong><br><br>
+    Il sottoscritto si assume la piena responsabilità
+    di operare come <strong>Tour Operator Privato per la città di Firenze</strong>,
+    includendo pianificazione itinerario,
+    guida turistica e assistenza strategica
+    nella scelta del gelato migliore.
+  </div>
 
-  <p>
-    💆‍♀️ <strong>N. 3 massaggi professionali</strong> erogati dal sottoscritto,
-    eseguiti con la massima cura, dedizione e spirito romantico.
-    Eventuali risatine durante il trattamento sono consentite.
-  </p>
-
-  <p>
-    🏛️ <strong>Servizio esclusivo di Tour Operator Privato per la città di Firenze</strong>,
-    comprensivo di guida turistica, pianificazione itinerario
-    e assistenza strategica nella scelta del gelato migliore.
-  </p>
-
-  <p>
-    Il presente voucher è valido a tempo indeterminato,
-    non trasferibile e utilizzabile solo dalla destinataria ufficiale.
-  </p>
-
-  <p style="margin-top: 30px;">
-    Firmato:<br>
-    <strong>Il tuo ragazzo innamorato 💘</strong>
-  </p>
+  <div class="signature">
+    Valido a tempo indeterminato • Non trasferibile<br>
+    Firmato: Il tuo ragazzo innamorato 💘
+  </div>
 
 </div>
+
 <script>
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+  heart.style.fontSize = (Math.random() * 28 + 16) + "px";
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 6000);
 }
